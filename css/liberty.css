@@ -1,0 +1,529 @@
+*{
+    margin: 0;
+    padding:0;
+    font-family: Roboto, Helvetica, sans-serif;
+    font-size: 20px;
+    scroll-behavior:smooth;
+    box-sizing: border-box;
+}
+body {
+    min-width: 320px;
+
+}
+header{
+    position:fixed;
+    height:75px;
+    width:100vw;
+    top:0px;
+    background-color: rgba(231, 76, 60, .95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    
+}
+header>*
+{
+    margin-left:10px;
+    margin-right:10px;
+}
+header>h1 {
+    color:white;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header>nav>ul{
+   
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1000px;
+    list-style: none;
+    margin-right: 20px;
+    
+}
+header>nav>ul * {
+    color:white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+header>nav>ul *:hover {
+  text-decoration: underline;
+}
+
+section{
+    padding-top: 75px;
+    min-height:90vh;
+    width:100%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+ /*   border: solid blue 1px;*/
+}
+section h1 {
+    font-family: 'Poiret One', cursive;
+    text-transform: uppercase;
+    font-size: 50px;
+    font-weight: lighter;
+}
+section>.titre {
+    text-transform: uppercase;
+    color: lightslategray;
+    font-size: 10px;
+    width: 80%;
+    text-align: center;
+}
+
+/**************************************************************/
+/*          Partie Home                                       */
+/**************************************************************/
+#home {
+    margin-top:75px;
+  /*  padding-top: 0px;*/
+
+    background: url(../images/hero.png) no-repeat center fixed; 
+    -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+    background-size: cover;
+}
+
+
+
+#home>.titre {
+    color:white;
+    
+    text-transform: uppercase;
+    text-align: center;
+}
+#home>.titre>* {
+    font-family: 'Poiret One', cursive;
+    font-size: 60px;
+    font-weight: lighter;
+}
+
+#home>.bout {
+    width:300px;
+   /* min-width:20%;*/
+    height:30px;
+    border-radius: 40px;
+    text-align: center;
+    background-color: rgba(231, 76, 60, .95);
+    padding:7px;
+    margin-bottom: 40px;
+    
+}
+#home>.bout>a {
+    font-family: 'Poiret One', cursive;
+    color:white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+/**************************************************************/
+/*          Partie OurWork                                    */
+/**************************************************************/
+
+
+
+#work>.portfolio {
+    min-height:550px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+#work>.portfolio>* {
+    margin:2%;
+    height: 203px;
+    width:270px;
+    background-color: mediumblue;
+
+}
+
+#work>.portfolio .voile {
+    position: absolute;
+    width: 270px;
+    height: 203px;
+   /* top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    margin:auto;*/
+    z-index: 50;
+    background-color:rgba(231, 76, 60, .95);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+}
+#work>.portfolio .voile>* {
+    height: 20px;
+    padding:3px;
+    color: white;
+    font-size: 12px;
+}
+#work>.portfolio .voile>.fas {
+    margin-top:40px;
+    font-size: 25px;
+}
+#work>.portfolio .voile:hover {
+    animation: ease voile 1s;
+    opacity: 0.8;
+}
+
+@keyframes voile 
+{
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 0.8;
+    }
+}
+
+/**************************************************************/
+/*          Partie Pricing                                     */
+/**************************************************************/
+
+#price .table{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+#price .table>*{
+    height:665px;
+    margin:2%;
+    width:280px;
+  /*  background-color: teal;*/
+    border-radius: 5px;
+   
+    border: 1px solid lightgrey;
+}
+#price .table .titreTable {
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: lightgrey;
+    border-radius: 5px 5px 0 0;
+    align-items: center;
+}
+#price .table .titreTable>h2 {
+    font-size: 40px;
+    font-weight: lighter;
+}
+#price .table .titreTable>h3 {
+
+    font-weight: lighter;
+}
+#price .table .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 495px;
+    font-weight: lighter;
+}
+#price .table .content>.ligne{
+    height:0px;
+    width:80%;
+    border-top: 1px solid grey;
+    
+}
+#price .table .content>.bout{
+    width: 80%;
+    height: 50px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #1e2a37;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#price .table .content>.bout>*{
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: lighter;
+ 
+    
+}
+#price .table .content>.bout:hover{
+    opacity: 0.9;
+}
+#price .table .TableBleu .titreTable, #price .table .TableBleu .content>.bout {
+    background-color: dodgerblue;
+    color:white;
+    
+}
+#price .table>.TableBleu
+{
+    border-color: dodgerblue;
+}
+/**************************************************************/
+/*          Partie Contact                                    */
+/**************************************************************/
+#contact
+{
+    min-height:70vh;
+    background-color: #2c3e50;
+}
+#contact h1
+{
+    color:white;
+}
+#contact .form {
+    width: 90%;
+}
+#contact .form>form{
+    min-height:300px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+   /* background-color: firebrick;*/
+    margin-bottom: 40px;
+}
+#contact .form>form>* {
+    min-width:300px;
+    width:40%;
+    height: 200px;
+    margin:2%;
+    margin-bottom: 40px;
+}
+
+#contact .form>form>*>textarea {
+  /*  width:95%;*/
+  width:100%;
+  border-width: 0px;
+  box-sizing: border-box;
+    height: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    color: lightslategray;
+    
+}
+#contact .form>form>.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  
+}
+#contact .form>form>.left>* {
+    margin:0;
+    width:100%;
+   
+    height: 50px;
+    border-radius: 5px;
+}
+#contact .form>form>.left>*>select {
+    margin:0;
+    width:68%;
+    margin-left: -8px;
+    height: 50px;
+    border-radius: 5px;
+    padding-left: 10px;
+    color: lightslategray;
+}
+#contact .form>form>.left>.sel
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    align-items: center;
+    
+}
+#contact .form>form>.left>input {
+padding-left: 10px;
+}
+#contact .form>form>.left>*>input {
+    border-width: 0px;
+    width:28%;
+    height: 50px;
+    background-color: rgba(231, 76, 60, .95);
+    color:white;
+    border-radius: 5px;
+    margin-right: -8px;
+    text-transform: uppercase;
+    font-weight: lighter;
+
+}
+/**************************************************************/
+/*          Partie footer                                    */
+/**************************************************************/
+section>.boutSLUp {
+    display: none;
+}
+.boutSLUp
+{
+margin:0 auto;
+margin-top:-25px;
+width:50px;
+height:50px;
+display:flex;
+justify-content: center;
+align-items: center;
+background-color:  rgba(231, 76, 60, .95);
+border-radius: 50%;
+}
+.boutSLUp>*
+{
+    color:white;
+    font-size: 20px;
+}
+
+footer{
+    background-color: #00acee;
+}
+
+footer>.titre
+{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 15px;
+    color: lightslategray;
+}
+footer>.center {
+    margin: 0 auto;
+    margin-top: 20px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width:300px;
+    margin-bottom: 40px;
+}
+
+footer>.center * {
+  /*  width:30px;
+    height:30px;*/
+    font-size: 20px;
+}
+
+footer>.center>.twit {
+    height: 40px;
+    width: 40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00acee;
+    border-radius: 50%;
+    
+}
+footer>.center>.twit .fab{
+    color:white;
+    z-index: 50;
+}
+footer>.center>.goog {
+    height: 40px;
+    width: 40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+     background-color: #db4a39;
+     border-radius: 50%;
+     
+ }
+ footer>.center>.goog .fab{
+     color:white;
+     z-index: 50;
+ }
+
+ footer>.center>.face {
+    height: 40px;
+    width: 40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+     background-color: #3b5998;
+     border-radius: 50%;
+     
+ }
+ footer>.center>.face .fab{
+     color:white;
+     z-index: 50;
+ }
+
+ @media (max-width:500px)
+ {
+    #home
+    {
+        margin-top:0px;
+    }
+    header{
+        width:100%;
+        position: relative;
+        flex-wrap: wrap;
+        height: unset;
+    }
+    header h1 {
+        width:100%;
+        text-align: center;
+        border-bottom: groove 3px white;
+    }
+    header ul,header nav {
+        width:100%;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    header li {
+        border-bottom: solid 1px white;
+        width:100%;
+        text-align: center;
+    }
+    section>.boutSLUp {
+        display: block;
+        z-index: 500;
+    }
+    section>.boutSLUp .fas {
+      padding: 15px;
+    }
+    section>.boutSLUp {
+        margin-top: -100px;
+    }
+ }
+
+ /* FORMULAIRE INSCRIPTION */
+
+.form_insc{
+    display: flex;
+    width: 80%;
+    justify-content: center;
+}
+
+.form_insc > form{
+    display: flex;
+    width: 90%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form_insc > form > label{
+    width: 100%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.form_insc > form > input{
+    width: 40%;
+}
+
+.form_insc > form > input[type="submit" i] {
+    margin-top: 2%;
+    width: 20%;
+}

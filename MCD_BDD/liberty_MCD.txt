@@ -1,0 +1,87 @@
+Sub Create_Tables()
+
+DoCmd.RunSQL "CREATE TABLE Liberty(" & _
+   "Id_Liberty BYTE," & _
+   "logo_liberty VARCHAR(100)," & _
+   "mail_liberty VARCHAR(50)," & _
+   "slogan_liberty VARCHAR(500)," & _
+   "PRIMARY KEY(Id_Liberty)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Project(" & _
+   "Id_Project BYTE," & _
+   "presentation_project VARCHAR(500)," & _
+   "title_project VARCHAR(50)," & _
+   "img_project VARCHAR(100)," & _
+   "Id_Liberty BYTE NOT NULL," & _
+   "PRIMARY KEY(Id_Project)," & _
+   "FOREIGN KEY(Id_Liberty) REFERENCES Liberty(Id_Liberty)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Subscription(" & _
+   "Id_Subscription BYTE," & _
+   "title_subscription VARCHAR(50)," & _
+   "price_subscription DECIMAL(10,2)," & _
+   "account_subscription BYTE," & _
+   "project_subscription BYTE," & _
+   "API_subscription INT," & _
+   "storage_subscription INT," & _
+   "cloud_subscription LOGICAL," & _
+   "report_subscription LOGICAL," & _
+   "Id_Liberty BYTE NOT NULL," & _
+   "PRIMARY KEY(Id_Subscription)," & _
+   "FOREIGN KEY(Id_Liberty) REFERENCES Liberty(Id_Liberty)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE title(" & _
+   "Id_title BYTE," & _
+   "content_subtitle VARCHAR(500)," & _
+   "content_title VARCHAR(50)," & _
+   "Id_Liberty BYTE NOT NULL," & _
+   "PRIMARY KEY(Id_title)," & _
+   "FOREIGN KEY(Id_Liberty) REFERENCES Liberty(Id_Liberty)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE service(" & _
+   "Id_service BYTE," & _
+   "name_service VARCHAR(50)," & _
+   "PRIMARY KEY(Id_service)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE account_type(" & _
+   "Id_account_type BYTE," & _
+   "type VARCHAR(50)," & _
+   "PRIMARY KEY(Id_account_type)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Customer(" & _
+   "Id_Customer BYTE," & _
+   "name_customer VARCHAR(50)," & _
+   "firstname_customer VARCHAR(50)," & _
+   "object_customer VARCHAR(50)," & _
+   "password_customer VARCHAR(255)," & _
+   "Id_account_type BYTE NOT NULL," & _
+   "PRIMARY KEY(Id_Customer)," & _
+   "FOREIGN KEY(Id_account_type) REFERENCES account_type(Id_account_type)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE Contact(" & _
+   "Id_Contact BYTE," & _
+   "subject_contact VARCHAR(50)," & _
+   "content_contact VARCHAR(1000)," & _
+   "Id_service BYTE NOT NULL," & _
+   "Id_Customer BYTE NOT NULL," & _
+   "PRIMARY KEY(Id_Contact)," & _
+   "FOREIGN KEY(Id_service) REFERENCES service(Id_service)," & _
+   "FOREIGN KEY(Id_Customer) REFERENCES Customer(Id_Customer)" & _
+");"   
+
+DoCmd.RunSQL "CREATE TABLE buy(" & _
+   "Id_Subscription BYTE," & _
+   "Id_Customer BYTE," & _
+   "PRIMARY KEY(Id_Subscription, Id_Customer)," & _
+   "FOREIGN KEY(Id_Subscription) REFERENCES Subscription(Id_Subscription)," & _
+   "FOREIGN KEY(Id_Customer) REFERENCES Customer(Id_Customer)" & _
+");"   
+
+End Sub
